@@ -1,24 +1,15 @@
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from .models import Reply
 from .serializers import ReplySerializers
 
 
 
-
-@api_view(['GET'])
-@permission_classes([AllowAny])
-def get_all_Replys(request):
-    replys = Reply.objects.all()
-    serializer = ReplySerializers(replys, many=True)
-    return Response(serializer.data)
-
-
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def user_Replys(request):
+def reply_detail(request):
     print(
         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
