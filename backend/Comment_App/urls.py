@@ -3,6 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('comments/', views.get_all_comments),
-    path('comments/<int:pk>/' , views.user_comments),
+    path('', views.get_all_comments),
+    path('<int:pk>/', views.user_comments),
+    path('ADD',views.add_record ),
 ]

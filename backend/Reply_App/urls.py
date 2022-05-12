@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     # path('videos/', views.reply_list),
-    path('reply/<int:pk>/' , views.reply_detail),
+    path('<int:pk>/' , views.reply_detail),
+    path('ADD', views.add_record)
 ]
