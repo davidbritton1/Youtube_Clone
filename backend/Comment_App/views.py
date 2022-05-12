@@ -16,7 +16,7 @@ def get_all_comments(request):
     return Response(serializer.data)
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
 def user_comments(request, pk):
     print(
